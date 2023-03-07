@@ -1,0 +1,8 @@
+[Unit]
+Description=Smart Dapeng Service
+Requires=network.target graphical.target  systemd-backlight@backlight:10-0045.service
+After=network-online.target
+[Service]
+ExecStart=/home/pi/smart-dapeng/service_start.sh
+[Install]
+WantedBy=multi-user.target
