@@ -1,2 +1,2 @@
 # smart-greenhouse
-An automated and intellectualized implement of an agriculture greenhouse in Shanxi, China.
+An IoT implement, which makes an agriculture greenhouse more automatical and smater, in Shanxi, China.
