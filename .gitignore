@@ -515,5 +515,9 @@ Temporary Items
 
 *.pyc
 
+chengdu
+speed
+state
+
 .vscode/
 dev/__pycache__/
