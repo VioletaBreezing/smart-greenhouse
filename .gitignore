@@ -515,7 +515,7 @@ Temporary Items
 
 *.pyc
 
-dev/*
+src/dev/*
 
 .vscode/
-dev/__pycache__/
+src/dev/__pycache__/
