@@ -50,37 +50,3 @@ if __name__ == "__main__":
     frontstage(parent_conn2, parent_conn1)
     # func(parent_conn2, parent_conn1)
     # p.join()
-
-# import multiprocessing
-# from multiprocessing import Process, Pipe
-# from setproctitle import setproctitle
-# import time
-# from ui import LeftTabWidget, Stylesheet
-# from PyQt5 import QtWidgets
-# import sys
-
-# def gui(conn_send, conn_recv):
-#     # setproctitle("sub_proc")
-#     app = QtWidgets.QApplication(sys.argv)
-#     app.setStyleSheet(Stylesheet)
-
-#     widget = LeftTabWidget(conn_recv, conn_send)
-#     # widget.resize(800, 480)
-
-#     # arg = conn.recv()
-#     # widget.text.setText(arg[0])
-#     widget.showFullScreen()
-
-#     app.exec_()
-
-# def func(conn_recv, conn_send):
-#     while True:
-#         args = conn_recv.recv()
-#         print(args)
-
-# if __name__ == "__main__":
-#     conn1_parent, conn1_child = Pipe()
-#     conn2_parent, conn2_child = Pipe()
-#     p = Process(target=func, args=(conn1_child, conn2_child,), daemon=True, name="sub")
-#     p.start()
-#     gui(conn1_parent, conn2_parent)
