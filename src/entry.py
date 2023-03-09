@@ -27,8 +27,6 @@ def background(conn_recv, conn_send):
                 recv_pipe_conn = conn_recv)
 
 def frontstage(conn_recv, conn_send):
-    # while 1:
-    #     pass
     app = ui.QApplication(sys.argv)
     app.setStyleSheet(ui.Stylesheet)
     w = ui.LeftTabWidget(pipe_conn_recv=conn_recv, pipe_conn_send=conn_send)
