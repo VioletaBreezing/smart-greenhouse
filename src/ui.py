@@ -2,31 +2,21 @@
 # -*- coding: utf-8 -*-
 # 设备上GUI界面代码
 
-"""
-Created on 2018年5月29日
-@author: Irony
-@site: https://pyqt.site , https://github.com/PyQt5
-@email: 892768447@qq.com
-@file: LeftTabWidget
-@description:
-"""
-
-from tabnanny import check
 from threading import Thread
 from time import sleep
 
 from PyQt5.QtCore import Qt, QSize, QTimer, QDateTime
-from PyQt5.QtGui import QIcon, QFont
+from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QApplication, QWidget, QListWidget, QStackedWidget, QHBoxLayout, \
     QListWidgetItem, QLabel, QVBoxLayout, QPushButton, QRadioButton, QTextBrowser, QSlider, QCheckBox, \
-    QMessageBox, QSpinBox
+    QSpinBox
 
 class RealDataWidget(QWidget):
     def __init__(self):
         super(RealDataWidget, self).__init__()
         self.v_layout = QVBoxLayout(self)
-        # self.layout.setSpacing(0)
         self.initUI()
+
     def initUI(self):
         self.labels0 = []
         self.labels1 = []
@@ -57,14 +47,6 @@ class RealDataWidget(QWidget):
             for label in labels:
                 label.setTextFormat(Qt.AutoText)
                 label.setAlignment(Qt.AlignCenter)
-                # label.setStyleSheet( '''color: black;
-                #                         background: white;
-                #                         margin-top: 10px;
-                #                         margin-left: 5px;
-                #                         margin-right: 5px;
-                #                         padding:15px;
-                #                         font-size: 25px;''')
-                # label.setMaximumWidth(300)
                 label.setMinimumHeight(80)
                 layout.addWidget(label)
             self.v_layout.addLayout(layout)
@@ -550,16 +532,6 @@ class LeftTabWidget(QWidget):
             item.setFont(QFont("Arial", 15))
         items[0].setSelected(True)
 
-        # 再模拟20个右侧的页面(就不和上面一起循环放了)
-        # for i in range(8):
-        #     label = QLabel('我是页 %d' % i, self)
-        #     label.setAlignment(Qt.AlignCenter)
-        #     # 设置label的背景颜色(这里随机)
-        #     # 这里加了一个margin边距(方便区分QStackedWidget和QLabel的颜色)
-        #     label.setStyleSheet('background: rgb(%d, %d, %d);' % (
-        #         randint(0, 255), randint(0, 255), randint(0, 255)))
-        #     self.stackedWidget.addWidget(label)
-
         self.page0 = RealDataWidget()
         self.page1 = ControlPanelWidget(self.pipe_conn_send)
         self.page2 = ParamSetWidget(self.pipe_conn_send, self.page1)
@@ -724,6 +696,5 @@ if __name__ == '__main__':
     app.setStyleSheet(Stylesheet)
 
     widget = LeftTabWidget(parent_conn2, child_conn1)
-    # w = LeftTabWidget(parent_conn2, child_conn1)
     widget.showFullScreen()
     sys.exit(app.exec_())
