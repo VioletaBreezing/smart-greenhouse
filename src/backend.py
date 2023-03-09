@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 #Filename : backend.py
-# 程序后端业务代码
+# 程序后端业务代码：负责数据的采集和上传，接收控制信息和执行相应动作。
+# 后端进程和前端GUI进程通过管道，使用 json 格式通信；和服务器使用 MQTT 协议通信
 
 # -*- coding: utf-8 -*-
 

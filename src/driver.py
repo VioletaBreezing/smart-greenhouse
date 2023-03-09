@@ -1,3 +1,7 @@
+# driver.py
+# 硬件设备驱动代码，硬件包含室内外的温湿度传感器，雨雪感应器，两个执行动作的电机，补光灯
+# 温湿度传感器和雨雪感应器挂载在 RS485 总线上，通讯协议为 modbus
+
 from threading import Event, Thread
 from time import sleep
 from random import randint
