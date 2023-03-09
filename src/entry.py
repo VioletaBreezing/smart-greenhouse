@@ -1,3 +1,6 @@
+# 程序入口文件，由此启动前端（GUI）和后端（业务逻辑）两个进程
+# 两个进程间通过管道（pipe）通信
+
 
 import setproctitle
 import time

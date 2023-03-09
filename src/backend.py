@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #Filename : backend.py
-# 此版本 由仅有风口可用的版本修改得到
+# 程序后端业务代码
 
 # -*- coding: utf-8 -*-
 

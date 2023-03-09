@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+# 设备上GUI界面代码
 
 """
 Created on 2018年5月29日
