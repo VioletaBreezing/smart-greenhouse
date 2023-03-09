@@ -24,8 +24,8 @@ from blinker.device import logger
 from requests import get as sync_get
 from requests.exceptions import ConnectionError as requests_ConnectionError
 
-# sensors.py模块内封装了各类传感器的读写函数
-import sensors
+# driver.py模块内封装了各类传感器的读写函数
+import driver
 
 # 各种天气对应的手机APP上的天气状态图标
 __weather_icon_app__ = {"qing":"fas fa-sun",        "yin":"fas fa-cloud",          "yun":"fas fa-sun-cloud", 
@@ -105,7 +105,7 @@ class IotDevice(Device):
     # 业务逻辑（非联网部分）中的规划运行任务
     scheduler_daily_tasks:dict = {}
 
-    # 需要在sensors.py导入并实例化的卷帘、风口设备类
+    # 需要在driver.py导入并实例化的卷帘、风口设备类
     juanlian_dev = None
     fengkou_dev  = None
 
@@ -162,8 +162,8 @@ class IotDevice(Device):
 
         self.tex_notice = self.addWidget(TextWidget("tex-not"))
 
-        self.juanlian_dev = sensors.Juanlian(workig_path + "src/dev/juanlian/")
-        self.fengkou_dev  = sensors.Fengkou(workig_path + "src/dev/fengkou/")
+        self.juanlian_dev = driver.Juanlian(workig_path + "src/dev/juanlian/")
+        self.fengkou_dev  = driver.Fengkou(workig_path + "src/dev/fengkou/")
         
         # self._realtime_callable = self.realtime_callable
 
@@ -239,13 +239,13 @@ class IotDevice(Device):
             return
         
         self.RS485_busy = True
-        temperature_indoor  = sensors.get_temp_indoor()
-        temperature_outdoor = sensors.get_temp_outdoor()
-        humidity_indoor  = sensors.get_humid_indoor()
-        humidity_outdoor = sensors.get_humid_outdoor()
-        light_indoor  = sensors.get_light_indoor()
-        light_outdoor = sensors.get_light_outdoor()
-        is_rain = sensors.get_rain_state()
+        temperature_indoor  = driver.get_temp_indoor()
+        temperature_outdoor = driver.get_temp_outdoor()
+        humidity_indoor  = driver.get_humid_indoor()
+        humidity_outdoor = driver.get_humid_outdoor()
+        light_indoor  = driver.get_light_indoor()
+        light_outdoor = driver.get_light_outdoor()
+        is_rain = driver.get_rain_state()
 
         self.temperature_indoor  = temperature_indoor if temperature_indoor!=None else self.temperature_indoor
         self.temperature_outdoor = temperature_outdoor if temperature_outdoor!=None else self.temperature_outdoor
@@ -278,7 +278,7 @@ class IotDevice(Device):
         self.RS485_busy = False
     
     def turn_led(self, cmd:str = None): # GPIO
-        return sensors.turn_led(cmd)
+        return driver.turn_led(cmd)
 
     # FILE
     def get_juanlian_chengdu(self):
